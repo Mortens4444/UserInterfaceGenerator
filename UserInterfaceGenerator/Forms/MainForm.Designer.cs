@@ -1,4 +1,6 @@
-﻿namespace UserInterfaceGenerator.Forms
+﻿using UserInterfaceGenerator.FileContentGenerators;
+
+namespace UserInterfaceGenerator.Forms
 {
 	partial class MainForm
 	{
@@ -30,7 +32,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User interface");
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("RootElement");
 			this.toolStrip = new System.Windows.Forms.ToolStrip();
 			this.tsbNewUserInterface = new System.Windows.Forms.ToolStripButton();
 			this.tslNewUserInterface = new System.Windows.Forms.ToolStripLabel();
@@ -221,7 +223,7 @@
 			this.tvUserInterfaceStructure.Location = new System.Drawing.Point(0, 0);
 			this.tvUserInterfaceStructure.Name = "tvUserInterfaceStructure";
 			treeNode1.Name = "UI";
-			treeNode1.Text = "User interface";
+			treeNode1.Text = "RootElement";
 			this.tvUserInterfaceStructure.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
 			this.tvUserInterfaceStructure.Size = new System.Drawing.Size(800, 403);

@@ -6,7 +6,7 @@ namespace UserInterfaceGenerator.FileContentGenerators
 {
 	abstract class TreeNodeCollectionGenerator
 	{
-		protected const string UserInterface = "User interface";
+		public const string UserInterface = "RootElement";
 
 		protected static string WriteNodes(TreeNodeCollection userInterfaceStructure, Func<TreeNode, int, string> openingElementToStringFunction, Func<TreeNode, int, string> closingElementToStringFunction = null, int level = 0)
 		{

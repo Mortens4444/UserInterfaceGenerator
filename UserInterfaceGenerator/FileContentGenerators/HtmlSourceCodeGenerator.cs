@@ -14,20 +14,12 @@ namespace UserInterfaceGenerator.FileContentGenerators
 
 		private string OpeningElementToString(TreeNode treeNode, int level)
 		{
-			if (treeNode.Text == UserInterface)
-			{
-				return rootElementGenerator.OpeningElement(treeNode, level);
-			}
 			var controlGenerator = GetControlGenerator(treeNode, MarkupLanguage.Html);
 			return controlGenerator.OpeningElement(treeNode, level);
 		}
 
 		private string ClosingElementToString(TreeNode treeNode, int level)
 		{
-			if (treeNode.Text == UserInterface)
-			{
-				return rootElementGenerator.ClosingElement(treeNode, level);
-			}
 			var controlGenerator = GetControlGenerator(treeNode, MarkupLanguage.Html);
 			return controlGenerator.ClosingElement(treeNode, level);
 		}

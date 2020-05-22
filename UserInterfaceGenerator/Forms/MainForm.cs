@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Enums;
 using MessageBoxes;
+using UserInterfaceGenerator.FileContentGenerators;
 
 namespace UserInterfaceGenerator.Forms
 {
@@ -51,7 +52,7 @@ namespace UserInterfaceGenerator.Forms
 			if (ConfirmBox.Show("Confirmation", "Are you sure you want to create a new user interface? All of your current changes will be lost!", Decide.No) == DialogResult.Yes)
 			{
 				tvUserInterfaceStructure.Nodes.Clear();
-				var rootNode = new TreeNode("User interface", 0, 0)
+				var rootNode = new TreeNode("RootElement", 0, 0)
 				{
 					Name = "UI"
 				};
