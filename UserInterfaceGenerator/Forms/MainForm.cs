@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Enums;
 using MessageBoxes;
@@ -14,6 +15,7 @@ namespace UserInterfaceGenerator.Forms
 		public MainForm()
 		{
 			InitializeComponent();
+			rtbSource.SelectionTabs = (new int[10]).Select((item, i) => i * 20).Skip(1).ToArray();
 			tvUserInterfaceStructure.ExpandAll();
 			tscbLanguage.SelectedIndex = 0;
 		}
@@ -54,6 +56,7 @@ namespace UserInterfaceGenerator.Forms
 				};
 				tvUserInterfaceStructure.Nodes.Add(rootNode);
 				tvUserInterfaceStructure.ExpandAll();
+				GetSourceCode();
 			}
 		}
 
@@ -138,6 +141,11 @@ namespace UserInterfaceGenerator.Forms
 		private void TscbLanguage_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			GetSourceCode();
+		}
+
+		private void TvUserInterfaceStructure_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			tvUserInterfaceStructure.SelectedNode = e.Node;
 		}
 	}
 }

@@ -21,8 +21,18 @@ namespace UserInterfaceGenerator
 
 		[HasText]
 		[HasTarget]
+		LabelWithTextBox,
+
+		[HasText]
+		[HasTarget]
+		LabelWithRichTextBox,
+
+		[HasText]
+		[HasTarget]
 		Link,
 
+		[HasText]
+		[HasTarget]
 		ListView,
 
 		NumericUpDown,
@@ -37,6 +47,10 @@ namespace UserInterfaceGenerator
 		[HasTarget]
 		[IsCheckable]
 		RadioButton,
+
+		[HasText]
+		[HasTarget]
+		RichTextBox,
 
 		Table,
 

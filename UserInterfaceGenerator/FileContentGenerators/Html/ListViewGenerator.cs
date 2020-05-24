@@ -9,7 +9,7 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 		{
 			return $"{GetIndentation(level)}<ol>{Environment.NewLine}" +
 				$"{GetIndentation(level + 1)}<li>Item 1</li>{Environment.NewLine}" +
-				$"{GetIndentation(level + 1)}<li>Item 2</li>{Environment.NewLine}";
+				$"{GetIndentation(level + 1)}<li>Item 2</li>";
 		}
 
 		public override string ClosingElement(TreeNode treeNode, int level)

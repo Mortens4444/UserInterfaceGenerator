@@ -7,6 +7,14 @@ namespace UserInterfaceGenerator.FileContentGenerators
 	{
 		private readonly RootElementGenerator rootElementGenerator = new RootElementGenerator();
 
+		public HtmlSourceCodeGenerator()
+		{
+			CheckBoxGenerator.CheckBoxId = 1;
+			RadioButtonGenerator.RadioButtonId = 1;
+			RichTextBoxGenerator.TextAreaId = 1;
+			TextBoxGenerator.TextBoxId = 1;
+		}
+
 		public string Generate(TreeNodeCollection userInterfaceStructure)
 		{
 			return WriteNodes(userInterfaceStructure, OpeningElementToString, ClosingElementToString, 2);

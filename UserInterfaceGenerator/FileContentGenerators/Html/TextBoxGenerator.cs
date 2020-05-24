@@ -4,13 +4,13 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 {
 	class TextBoxGenerator : ControlGenerator
 	{
-		private int textBoxId = 1;
+		public static int TextBoxId = 1;
 
 		public override string OpeningElement(TreeNode treeNode, int level)
 		{
-			var id = $"textbox_{textBoxId}";
+			var id = $"textbox_{TextBoxId}";
 			var result = $"{GetIndentation(level)}<input type=\"text\" id=\"{id}\" name=\"{id}\" value=\"{GetTextProperty(treeNode)}\" />";
-			textBoxId++;
+			TextBoxId++;
 			return result;
 		}
 

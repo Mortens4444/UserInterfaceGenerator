@@ -5,11 +5,11 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 {
 	class CheckBoxGenerator : ControlGenerator
 	{
-		private int checkBoxId = 1;
+		public static int CheckBoxId = 1;
 
 		public override string OpeningElement(TreeNode treeNode, int level)
 		{
-			var id = $"checkbox_{checkBoxId}";
+			var id = $"checkbox_{CheckBoxId}";
 			var result = $"{GetIndentation(level)}<input type=\"checkbox\" id=\"{id}\" name=\"{id}\" value=\"{id}\"";
 			if (IsChecked(treeNode))
 			{
@@ -22,7 +22,7 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 				result += Environment.NewLine;
 				result += $"{GetIndentation(level)}<label for=\"{id}\">{GetTextProperty(treeNode)}</label>";
 			}
-			checkBoxId++;
+			CheckBoxId++;
 			return result;
 		}
 

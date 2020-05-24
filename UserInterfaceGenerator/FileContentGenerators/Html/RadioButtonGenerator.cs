@@ -5,11 +5,11 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 {
 	class RadioButtonGenerator : ControlGenerator
 	{
-		private int radioButtonId = 1;
+		public static int RadioButtonId = 1;
 
 		public override string OpeningElement(TreeNode treeNode, int level)
 		{
-			var id = $"radiobutton_{radioButtonId}";
+			var id = $"radiobutton_{RadioButtonId}";
 			var result = $"{GetIndentation(level)}<input type=\"radio\" id=\"{id}\" name=\"radio\" value=\"{id}\"";
 			if (IsChecked(treeNode))
 			{
@@ -22,7 +22,7 @@ namespace UserInterfaceGenerator.FileContentGenerators.Html
 				result += Environment.NewLine;
 				result += $"{GetIndentation(level)}<label for=\"{id}\">{GetTextProperty(treeNode)}</label>";
 			}
-			radioButtonId++;
+			RadioButtonId++;
 			return result;
 		}
 

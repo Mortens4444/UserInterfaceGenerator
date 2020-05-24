@@ -32,7 +32,7 @@ namespace UserInterfaceGenerator.Forms
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("RootElement");
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("RootElement");
 			this.toolStrip = new System.Windows.Forms.ToolStrip();
 			this.tsbNewUserInterface = new System.Windows.Forms.ToolStripButton();
 			this.tslNewUserInterface = new System.Windows.Forms.ToolStripLabel();
@@ -224,7 +224,6 @@ namespace UserInterfaceGenerator.Forms
 			this.rtbSource.Name = "rtbSource";
 			this.rtbSource.Size = new System.Drawing.Size(573, 403);
 			this.rtbSource.TabIndex = 0;
-			this.rtbSource.SelectionTabs = new int[] { 20, 40, 60, 80 };
 			this.rtbSource.Text = "";
 			// 
 			// splitter1
@@ -250,12 +249,13 @@ namespace UserInterfaceGenerator.Forms
 			this.tvUserInterfaceStructure.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tvUserInterfaceStructure.Location = new System.Drawing.Point(0, 0);
 			this.tvUserInterfaceStructure.Name = "tvUserInterfaceStructure";
-			treeNode2.Name = "UI";
-			treeNode2.Text = "RootElement";
+			treeNode1.Name = "UI";
+			treeNode1.Text = "RootElement";
 			this.tvUserInterfaceStructure.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
 			this.tvUserInterfaceStructure.Size = new System.Drawing.Size(219, 403);
 			this.tvUserInterfaceStructure.TabIndex = 1;
+			this.tvUserInterfaceStructure.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvUserInterfaceStructure_NodeMouseClick);
 			// 
 			// contextMenu
 			// 
