@@ -15,13 +15,13 @@ namespace UserInterfaceGenerator.FileContentGenerators
 		private string OpeningElementToString(TreeNode treeNode, int level)
 		{
 			var controlGenerator = GetControlGenerator(treeNode, MarkupLanguage.Xaml);
-			return controlGenerator.OpeningElement(treeNode, level);
+			return controlGenerator?.OpeningElement(treeNode, level);
 		}
 
 		private string ClosingElementToString(TreeNode treeNode, int level)
 		{
 			var controlGenerator = GetControlGenerator(treeNode, MarkupLanguage.Xaml);
-			return controlGenerator.ClosingElement(treeNode, level);
+			return controlGenerator?.ClosingElement(treeNode, level);
 		}
 	}
 }

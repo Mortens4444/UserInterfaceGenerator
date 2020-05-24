@@ -32,6 +32,10 @@ namespace UserInterfaceGenerator.FileContentGenerators
 			var spaceIndex = treeNode.Text.IndexOf(' ');
 			var type = spaceIndex == -1 ? treeNode.Text : treeNode.Text.Substring(0, spaceIndex);
 			var generatorType = Type.GetType($"UserInterfaceGenerator.FileContentGenerators.{markupLanguage}.{type}Generator");
+			if (generatorType == null)
+			{
+				return null;
+			}
 			var controlGenerator = (ControlGenerator)Activator.CreateInstance(generatorType);
 			return controlGenerator;
 		}

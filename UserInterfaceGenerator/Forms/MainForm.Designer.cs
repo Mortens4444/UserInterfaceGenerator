@@ -32,7 +32,7 @@ namespace UserInterfaceGenerator.Forms
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("RootElement");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("RootElement");
 			this.toolStrip = new System.Windows.Forms.ToolStrip();
 			this.tsbNewUserInterface = new System.Windows.Forms.ToolStripButton();
 			this.tslNewUserInterface = new System.Windows.Forms.ToolStripLabel();
@@ -43,23 +43,27 @@ namespace UserInterfaceGenerator.Forms
 			this.tsbLoadUI = new System.Windows.Forms.ToolStripButton();
 			this.tslLoadUI = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbGenerateHtmlSource = new System.Windows.Forms.ToolStripButton();
-			this.tslGenerateHtmlSource = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbGenerateXamlSource = new System.Windows.Forms.ToolStripButton();
-			this.tslGenerateXamlSource = new System.Windows.Forms.ToolStripLabel();
+			this.tsbGenerateSource = new System.Windows.Forms.ToolStripButton();
+			this.tslGeneratelSource = new System.Windows.Forms.ToolStripLabel();
+			this.tscbLanguage = new System.Windows.Forms.ToolStripComboBox();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.tsslInfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.pMain = new System.Windows.Forms.Panel();
+			this.pSource = new System.Windows.Forms.Panel();
+			this.rtbSource = new System.Windows.Forms.RichTextBox();
+			this.splitter1 = new System.Windows.Forms.Splitter();
+			this.pUserInterfaceStructure = new System.Windows.Forms.Panel();
 			this.tvUserInterfaceStructure = new System.Windows.Forms.TreeView();
 			this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.TslmAddChildControl = new System.Windows.Forms.ToolStripMenuItem();
+			this.TslmDeleteControl = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-			this.TslmDeleteControl = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.pMain.SuspendLayout();
+			this.pSource.SuspendLayout();
+			this.pUserInterfaceStructure.SuspendLayout();
 			this.contextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -75,11 +79,9 @@ namespace UserInterfaceGenerator.Forms
             this.tsbLoadUI,
             this.tslLoadUI,
             this.toolStripSeparator4,
-            this.tsbGenerateHtmlSource,
-            this.tslGenerateHtmlSource,
-            this.toolStripSeparator2,
-            this.tsbGenerateXamlSource,
-            this.tslGenerateXamlSource});
+            this.tsbGenerateSource,
+            this.tslGeneratelSource,
+            this.tscbLanguage});
 			this.toolStrip.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip.Name = "toolStrip";
 			this.toolStrip.Size = new System.Drawing.Size(800, 25);
@@ -152,44 +154,32 @@ namespace UserInterfaceGenerator.Forms
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
 			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
 			// 
-			// tsbGenerateHtmlSource
+			// tsbGenerateSource
 			// 
-			this.tsbGenerateHtmlSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbGenerateHtmlSource.Image = ((System.Drawing.Image)(resources.GetObject("tsbGenerateHtmlSource.Image")));
-			this.tsbGenerateHtmlSource.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbGenerateHtmlSource.Name = "tsbGenerateHtmlSource";
-			this.tsbGenerateHtmlSource.Size = new System.Drawing.Size(23, 22);
-			this.tsbGenerateHtmlSource.Text = "Generate HTML source";
-			this.tsbGenerateHtmlSource.Click += new System.EventHandler(this.TsbGenerateHtmlSource_Click);
+			this.tsbGenerateSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbGenerateSource.Image = ((System.Drawing.Image)(resources.GetObject("tsbGenerateSource.Image")));
+			this.tsbGenerateSource.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbGenerateSource.Name = "tsbGenerateSource";
+			this.tsbGenerateSource.Size = new System.Drawing.Size(23, 22);
+			this.tsbGenerateSource.Text = "Generate HTML source";
+			this.tsbGenerateSource.Click += new System.EventHandler(this.TsbGenerateSource_Click);
 			// 
-			// tslGenerateHtmlSource
+			// tslGeneratelSource
 			// 
-			this.tslGenerateHtmlSource.Name = "tslGenerateHtmlSource";
-			this.tslGenerateHtmlSource.Size = new System.Drawing.Size(127, 22);
-			this.tslGenerateHtmlSource.Text = "Generate HTML source";
-			this.tslGenerateHtmlSource.Click += new System.EventHandler(this.TslGenerateHtmlSource_Click);
+			this.tslGeneratelSource.Name = "tslGeneratelSource";
+			this.tslGeneratelSource.Size = new System.Drawing.Size(92, 22);
+			this.tslGeneratelSource.Text = "Generate source";
+			this.tslGeneratelSource.Click += new System.EventHandler(this.TslGenerateSource_Click);
 			// 
-			// toolStripSeparator2
+			// tscbLanguage
 			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// tsbGenerateXamlSource
-			// 
-			this.tsbGenerateXamlSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbGenerateXamlSource.Image = ((System.Drawing.Image)(resources.GetObject("tsbGenerateXamlSource.Image")));
-			this.tsbGenerateXamlSource.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbGenerateXamlSource.Name = "tsbGenerateXamlSource";
-			this.tsbGenerateXamlSource.Size = new System.Drawing.Size(23, 22);
-			this.tsbGenerateXamlSource.Text = "Generate XAML source";
-			this.tsbGenerateXamlSource.Click += new System.EventHandler(this.TsbGenerateXamlSource_Click);
-			// 
-			// tslGenerateXamlSource
-			// 
-			this.tslGenerateXamlSource.Name = "tslGenerateXamlSource";
-			this.tslGenerateXamlSource.Size = new System.Drawing.Size(119, 22);
-			this.tslGenerateXamlSource.Text = "Generate XAML source";
-			this.tslGenerateXamlSource.Click += new System.EventHandler(this.TslGenerateXamlSource_Click);
+			this.tscbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.tscbLanguage.Items.AddRange(new object[] {
+            "HTML",
+            "XAML"});
+			this.tscbLanguage.Name = "tscbLanguage";
+			this.tscbLanguage.Size = new System.Drawing.Size(121, 25);
+			this.tscbLanguage.SelectedIndexChanged += new System.EventHandler(this.TscbLanguage_SelectedIndexChanged);
 			// 
 			// statusStrip
 			// 
@@ -204,17 +194,55 @@ namespace UserInterfaceGenerator.Forms
 			// tsslInfoLabel
 			// 
 			this.tsslInfoLabel.Name = "tsslInfoLabel";
-			this.tsslInfoLabel.Size = new System.Drawing.Size(193, 17);
-			this.tsslInfoLabel.Text = "Use right click on the nodes to start";
+			this.tsslInfoLabel.Size = new System.Drawing.Size(293, 17);
+			this.tsslInfoLabel.Text = "Use right click on the nodes to add or remove controls";
 			// 
 			// pMain
 			// 
-			this.pMain.Controls.Add(this.tvUserInterfaceStructure);
+			this.pMain.Controls.Add(this.pSource);
+			this.pMain.Controls.Add(this.splitter1);
+			this.pMain.Controls.Add(this.pUserInterfaceStructure);
 			this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pMain.Location = new System.Drawing.Point(0, 25);
 			this.pMain.Name = "pMain";
 			this.pMain.Size = new System.Drawing.Size(800, 403);
 			this.pMain.TabIndex = 3;
+			// 
+			// pSource
+			// 
+			this.pSource.Controls.Add(this.rtbSource);
+			this.pSource.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pSource.Location = new System.Drawing.Point(227, 0);
+			this.pSource.Name = "pSource";
+			this.pSource.Size = new System.Drawing.Size(573, 403);
+			this.pSource.TabIndex = 2;
+			// 
+			// rtbSource
+			// 
+			this.rtbSource.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.rtbSource.Location = new System.Drawing.Point(0, 0);
+			this.rtbSource.Name = "rtbSource";
+			this.rtbSource.Size = new System.Drawing.Size(573, 403);
+			this.rtbSource.TabIndex = 0;
+			this.rtbSource.SelectionTabs = new int[] { 20, 40, 60, 80 };
+			this.rtbSource.Text = "";
+			// 
+			// splitter1
+			// 
+			this.splitter1.Location = new System.Drawing.Point(219, 0);
+			this.splitter1.Name = "splitter1";
+			this.splitter1.Size = new System.Drawing.Size(8, 403);
+			this.splitter1.TabIndex = 1;
+			this.splitter1.TabStop = false;
+			// 
+			// pUserInterfaceStructure
+			// 
+			this.pUserInterfaceStructure.Controls.Add(this.tvUserInterfaceStructure);
+			this.pUserInterfaceStructure.Dock = System.Windows.Forms.DockStyle.Left;
+			this.pUserInterfaceStructure.Location = new System.Drawing.Point(0, 0);
+			this.pUserInterfaceStructure.Name = "pUserInterfaceStructure";
+			this.pUserInterfaceStructure.Size = new System.Drawing.Size(219, 403);
+			this.pUserInterfaceStructure.TabIndex = 0;
 			// 
 			// tvUserInterfaceStructure
 			// 
@@ -222,12 +250,12 @@ namespace UserInterfaceGenerator.Forms
 			this.tvUserInterfaceStructure.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tvUserInterfaceStructure.Location = new System.Drawing.Point(0, 0);
 			this.tvUserInterfaceStructure.Name = "tvUserInterfaceStructure";
-			treeNode1.Name = "UI";
-			treeNode1.Text = "RootElement";
+			treeNode2.Name = "UI";
+			treeNode2.Text = "RootElement";
 			this.tvUserInterfaceStructure.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-			this.tvUserInterfaceStructure.Size = new System.Drawing.Size(800, 403);
-			this.tvUserInterfaceStructure.TabIndex = 0;
+            treeNode2});
+			this.tvUserInterfaceStructure.Size = new System.Drawing.Size(219, 403);
+			this.tvUserInterfaceStructure.TabIndex = 1;
 			// 
 			// contextMenu
 			// 
@@ -235,25 +263,25 @@ namespace UserInterfaceGenerator.Forms
             this.TslmAddChildControl,
             this.TslmDeleteControl});
 			this.contextMenu.Name = "contextMenu";
-			this.contextMenu.Size = new System.Drawing.Size(181, 70);
+			this.contextMenu.Size = new System.Drawing.Size(167, 48);
 			// 
 			// TslmAddChildControl
 			// 
 			this.TslmAddChildControl.Name = "TslmAddChildControl";
-			this.TslmAddChildControl.Size = new System.Drawing.Size(180, 22);
+			this.TslmAddChildControl.Size = new System.Drawing.Size(166, 22);
 			this.TslmAddChildControl.Text = "Add child control";
 			this.TslmAddChildControl.Click += new System.EventHandler(this.TslmAddChildControl_Click);
-			// 
-			// saveFileDialog
-			// 
-			this.saveFileDialog.Filter = "User interface files|*.uif|All files|*";
 			// 
 			// TslmDeleteControl
 			// 
 			this.TslmDeleteControl.Name = "TslmDeleteControl";
-			this.TslmDeleteControl.Size = new System.Drawing.Size(180, 22);
+			this.TslmDeleteControl.Size = new System.Drawing.Size(166, 22);
 			this.TslmDeleteControl.Text = "Delete control";
 			this.TslmDeleteControl.Click += new System.EventHandler(this.TslmDeleteControl_Click);
+			// 
+			// saveFileDialog
+			// 
+			this.saveFileDialog.Filter = "User interface files|*.uif|All files|*";
 			// 
 			// MainForm
 			// 
@@ -271,6 +299,8 @@ namespace UserInterfaceGenerator.Forms
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.pMain.ResumeLayout(false);
+			this.pSource.ResumeLayout(false);
+			this.pUserInterfaceStructure.ResumeLayout(false);
 			this.contextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -282,16 +312,12 @@ namespace UserInterfaceGenerator.Forms
 		private System.Windows.Forms.ToolStrip toolStrip;
 		private System.Windows.Forms.StatusStrip statusStrip;
 		private System.Windows.Forms.Panel pMain;
-		private System.Windows.Forms.TreeView tvUserInterfaceStructure;
 		private System.Windows.Forms.ContextMenuStrip contextMenu;
 		private System.Windows.Forms.ToolStripButton tsbNewUserInterface;
-		private System.Windows.Forms.ToolStripButton tsbGenerateHtmlSource;
-		private System.Windows.Forms.ToolStripButton tsbGenerateXamlSource;
+		private System.Windows.Forms.ToolStripButton tsbGenerateSource;
 		private System.Windows.Forms.ToolStripLabel tslNewUserInterface;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripLabel tslGenerateHtmlSource;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripLabel tslGenerateXamlSource;
+		private System.Windows.Forms.ToolStripLabel tslGeneratelSource;
 		private System.Windows.Forms.ToolStripStatusLabel tsslInfoLabel;
 		private System.Windows.Forms.ToolStripButton tsbSaveUI;
 		private System.Windows.Forms.ToolStripLabel tslSaveUI;
@@ -303,6 +329,12 @@ namespace UserInterfaceGenerator.Forms
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		private System.Windows.Forms.ToolStripMenuItem TslmAddChildControl;
 		private System.Windows.Forms.ToolStripMenuItem TslmDeleteControl;
+		private System.Windows.Forms.Panel pSource;
+		private System.Windows.Forms.Splitter splitter1;
+		private System.Windows.Forms.Panel pUserInterfaceStructure;
+		private System.Windows.Forms.TreeView tvUserInterfaceStructure;
+		private System.Windows.Forms.RichTextBox rtbSource;
+		private System.Windows.Forms.ToolStripComboBox tscbLanguage;
 	}
 }
 

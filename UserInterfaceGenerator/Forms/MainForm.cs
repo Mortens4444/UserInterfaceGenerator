@@ -15,6 +15,7 @@ namespace UserInterfaceGenerator.Forms
 		{
 			InitializeComponent();
 			tvUserInterfaceStructure.ExpandAll();
+			tscbLanguage.SelectedIndex = 0;
 		}
 
 		private void TslNewUserInterface_Click(object sender, EventArgs e)
@@ -32,14 +33,9 @@ namespace UserInterfaceGenerator.Forms
 			LoadUserInterfaceFile();
 		}
 
-		private void TslGenerateHtmlSource_Click(object sender, EventArgs e)
+		private void TslGenerateSource_Click(object sender, EventArgs e)
 		{
-			fileGenerator.GenerateHtmlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
-		}
-
-		private void TslGenerateXamlSource_Click(object sender, EventArgs e)
-		{
-			fileGenerator.GenerateXamlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
+			GenerateSource();
 		}
 
 		private void TsbNewUserInterface_Click(object sender, EventArgs e)
@@ -78,17 +74,43 @@ namespace UserInterfaceGenerator.Forms
 				var userInterfaceFileLoader = new UserInterfaceFileLoader();
 				var fileContent = File.ReadAllText(openFileDialog.FileName);
 				userInterfaceFileLoader.LoadNodes(tvUserInterfaceStructure, fileContent);
+				GetSourceCode();
 			}
 		}
 
-		private void TsbGenerateHtmlSource_Click(object sender, EventArgs e)
+		private void TsbGenerateSource_Click(object sender, EventArgs e)
 		{
-			fileGenerator.GenerateHtmlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
+			GenerateSource();
 		}
 
-		private void TsbGenerateXamlSource_Click(object sender, EventArgs e)
+		private void GenerateSource()
 		{
-			fileGenerator.GenerateXamlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
+			switch (tscbLanguage.SelectedItem)
+			{
+				case "HTML":
+					fileGenerator.GenerateHtmlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
+					break;
+				case "XAML":
+					fileGenerator.GenerateXamlSourceFile(saveFileDialog, tvUserInterfaceStructure.Nodes);
+					break;
+			}
+		}
+
+		private void GetSourceCode()
+		{
+			IFileContentGenerator fileContentGenerator;
+			switch (tscbLanguage.SelectedItem)
+			{
+				case "HTML":
+					fileContentGenerator = new HtmlSourceCodeGenerator();
+					break;
+				case "XAML":
+					fileContentGenerator = new XamlSourceCodeGenerator();
+					break;
+				default:
+					throw new NotImplementedException();
+			}
+			rtbSource.Text = fileContentGenerator.Generate(tvUserInterfaceStructure.Nodes);
 		}
 
 		private void TslmAddChildControl_Click(object sender, EventArgs e)
@@ -99,6 +121,7 @@ namespace UserInterfaceGenerator.Forms
 				var node = new TreeNode(addControlForm.ControlDescriptor, 0, 0);
 				tvUserInterfaceStructure.SelectedNode.Nodes.Add(node);
 				tvUserInterfaceStructure.SelectedNode.ExpandAll();
+				GetSourceCode();
 			}
 		}
 
@@ -108,7 +131,13 @@ namespace UserInterfaceGenerator.Forms
 				tvUserInterfaceStructure.SelectedNode != null)
 			{
 				tvUserInterfaceStructure.SelectedNode.Remove();
+				GetSourceCode();
 			}
+		}
+
+		private void TscbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			GetSourceCode();
 		}
 	}
 }
