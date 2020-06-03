@@ -65,6 +65,7 @@
     <Compile Include="CustomAttributeChecker.cs" />
     <Compile Include="FileContentGenerators\ControlGenerator.cs" />
     <Compile Include="FileContentGenerators\Html\ComboBoxGenerator.cs" />
+    <Compile Include="FileContentGenerators\Html\DatePickerGenerator.cs" />
     <Compile Include="FileContentGenerators\Html\LabelWithRichTextBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Html\LabelWithTextBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Html\NumericUpDownGenerator.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="FileContentGenerators\Html\CheckBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Html\ButtonGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\ComboBoxGenerator.cs" />
+    <Compile Include="FileContentGenerators\Xaml\DatePickerGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\LabelWithRichTextBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\LabelWithTextBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\NumericUpDownGenerator.cs" />
@@ -92,7 +94,9 @@
     <Compile Include="FileContentGenerators\Xaml\LabelGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\LinkGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\ListViewGenerator.cs" />
-    <Compile Include="FileContentGenerators\Xaml\PanelGenerator.cs" />
+    <Compile Include="FileContentGenerators\Xaml\GridGenerator.cs" />
+    <Compile Include="FileContentGenerators\Xaml\WrapPanelGenerator.cs" />
+    <Compile Include="FileContentGenerators\Xaml\StackPanelGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\PictureBoxGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\RadioButtonGenerator.cs" />
     <Compile Include="FileContentGenerators\Xaml\RootElementGenerator.cs" />

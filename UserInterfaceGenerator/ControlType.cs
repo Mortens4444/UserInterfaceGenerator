@@ -13,6 +13,10 @@ namespace UserInterfaceGenerator
 
 		ComboBox,
 
+		DatePicker,
+
+		Grid,
+
 		[HasText]
 		GroupBox,
 
@@ -37,8 +41,6 @@ namespace UserInterfaceGenerator
 
 		NumericUpDown,
 
-		Panel,
-
 		[HasText]
 		[HasTarget]
 		PictureBox,
@@ -57,6 +59,10 @@ namespace UserInterfaceGenerator
 		[HasText]
 		TextBox,
 
-		TreeView
+		TreeView,
+
+		StackPanel,
+
+		WrapPanel
 	}
 }

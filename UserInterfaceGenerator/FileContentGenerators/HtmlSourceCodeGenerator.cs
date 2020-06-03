@@ -13,6 +13,7 @@ namespace UserInterfaceGenerator.FileContentGenerators
 			RadioButtonGenerator.RadioButtonId = 1;
 			RichTextBoxGenerator.TextAreaId = 1;
 			TextBoxGenerator.TextBoxId = 1;
+			DatePickerGenerator.DatePickerId = 1;
 		}
 
 		public string Generate(TreeNodeCollection userInterfaceStructure)

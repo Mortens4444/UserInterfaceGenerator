@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace UserInterfaceGenerator.FileContentGenerators.Xaml
 {
-	class PanelGenerator : ControlGenerator
+	class StackPanelGenerator : ControlGenerator
 	{
 		public override string OpeningElement(TreeNode treeNode, int level)
 		{
